@@ -11,7 +11,14 @@ min-width:100%;
 min-height:100%;
 border:1px solid #000;
 background-image: url(${img}) ;
-background-size: contain;
+background-repeat: no-repeat; 
+  background-position: center;
+  background-attachment: fixed;       
+  webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 `
 const Container=styled.div`
   display:flex;
