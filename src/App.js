@@ -5,6 +5,7 @@ import LogoSrc from './img/logo.png';
 
 
 const Content=styled.div`
+position:fixed;
 top:0;
 left:0;
 min-width:100%;

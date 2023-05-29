@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
 import background from '../img/bgp.jpg';
-import Pokedex from './PokemonDetails';
 const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -97,7 +96,6 @@ const Pokedox = () => {
           </div>
         )}
         </PokemonDataContainer>
-        <Pokedex/>
       </div>
    
     );
