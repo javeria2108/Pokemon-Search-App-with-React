@@ -1,10 +1,10 @@
 import Pokedox from './Components/Pokedox';
 import styled from "styled-components";
 import img from './img/bg.gif';
+import LogoSrc from './img/logo.png';
 
 
 const Content=styled.div`
-position:fixed;
 top:0;
 left:0;
 min-width:100%;
@@ -28,11 +28,18 @@ const Container=styled.div`
   font-family:Montserrat;
  
 `
+
 const Header=styled.span`
-  color:black;
-  font-size:25px;
+ 
+  color:yellow;
+  font-size:40px;
   font-weight:bold;
 
+`
+const Logo=styled.img`
+width: 100%;
+height: 100%;
+margin: 15px;
 `
 function App() {
   return (
@@ -41,7 +48,7 @@ function App() {
     <Content>
     <Container>
     <Header>
-    Pokedox
+      <Logo src={LogoSrc}/>
   </Header>
   <Pokedox/>
   </Container>
