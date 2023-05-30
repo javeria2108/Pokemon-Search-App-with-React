@@ -37,15 +37,11 @@ Feel free to explore and experiment with the app to discover various Pokémon!
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Credits
 
 - Pokémon data is sourced from the [PokeAPI](https://pokeapi.co/).
-- Background image by [Name](Link). (Please provide the appropriate credit or remove this line if not applicable)
-
+-
 ---
 
 Happy Pokémon searching! 🌟🔎🔥
