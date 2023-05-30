@@ -15,6 +15,17 @@ const PokemonDataContainer=styled.div`
     margin-bottom: 15px;
 
 `
+const ParagraphContainer=styled.div`
+display: flex;
+flex-direction: column;
+align-items:center;
+width:100%;
+background-color:black
+border: 2px,solid;
+border-radius: 10px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+`
 
 const PokemonDetails = () => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -77,10 +88,12 @@ const PokemonDetails = () => {
         { pokemonData.map((pokemon) => (
         <PokemonDataContainer key={pokemon.id}>
         <div >
-          <h2 style={{color:"black",fontSize:"25px", textAlign:"center" }}>{pokemon.name}</h2>
+          <h2 style={{fontFamily:"cursive", color:"#0A285F",fontSize:"25px", textAlign:"center",fontSize:"30px" }}>{pokemon.name}</h2>
           <img src={pokemon.sprites.front_default} alt={pokemon.name} style={{width:"200px"}} />
-          <p style={{color:"black", fontSize:"15px",textAlign:"center",fontWeight:"bold"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
-          <p style={{color:"black", fontSize:"15px",textAlign:"center",fontWeight:"bold"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
+        <div style={{backgroundColor:"#0A285F", height:"100px",width:"250px",borderRadius:"10px", paddingTop: "20px", marginBottom:"20px"}}>
+          <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
+          <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
+          </div>
         </div>
         </PokemonDataContainer>
       )) }

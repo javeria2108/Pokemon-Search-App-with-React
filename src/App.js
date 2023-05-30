@@ -6,20 +6,16 @@ import PokemonDetails from './Components/PokemonDetails';
 
 
 const Content=styled.div`
-top:0;
-left:0;
-min-width:100%;
-min-height:100%;
-border:1px solid #000;
-background-image: url(${img}) ;
-background-repeat: no-repeat; 
-  background-position: center;
-  background-attachment: fixed;       
-  webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
+top: 0;
+left: 0;
+min-width: 100vw; /* Adjusted to use viewport width */
+min-height: 100vh; /* Adjusted to use viewport height */
+border: 1px solid #000;
+background-image: url(${img});
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;
+background-size: cover; 
 `
 const Container=styled.div`
   display:flex;
