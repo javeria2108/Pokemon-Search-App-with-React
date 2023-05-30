@@ -29,7 +29,7 @@ const StyledReactPaginate = styled(ReactPaginate)`
      list-style:none;
      a{
         padding: 10px;
-        margin:8px;
+        margin:2px;
         background-color:#0A285F;
         border-radius: 10px;
         box-shadow:1px 1px 1px 1px #888999;
@@ -99,11 +99,11 @@ const displayPokemon=pokemonData
         <>
      <PokemonDataContainer key={pokemon.id}>
     <div >
-      <h2 style={{fontFamily:"cursive", color:"#0A285F", textAlign:"center",fontSize:"30px" }}>{pokemon.name}</h2>
+      <h2 style={{fontFamily:"fantasy",font:"luminari", color:"#0A285F", textAlign:"center",fontSize:"30px" }}>{pokemon.name}</h2>
       <img src={pokemon.sprites.front_default} alt={pokemon.name} style={{width:"200px"}} />
-    <div style={{backgroundColor:"#0A285F", height:"100px",width:"250px",borderRadius:"10px", paddingTop: "20px", marginBottom:"20px"}}>
-      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
-      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
+    <div style={{backgroundColor:"#0A285F", height:"100px",width:"280px",borderRadius:"10px", paddingTop: "20px", marginBottom:"20px"}}>
+      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"18px",textAlign:"center",textDecorationLine:"underline"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
+      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"18px",textAlign:"center",textDecorationLine:"underline"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
       </div>
     </div>
     </PokemonDataContainer>
@@ -117,7 +117,7 @@ const changePage=({selected})=>{
   return (
     <div>
         <SearchBar onSearch={HandleSearch}></SearchBar>
-        {loading && <p>Loading...</p>}
+        {loading && <p style={{color:"#0A285F",fontSize:"30px"}}>Loading...</p>}
   
   {error && <p>{error}</p>}
        {displayPokemon}
