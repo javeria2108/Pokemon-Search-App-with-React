@@ -1,11 +1,11 @@
-import Pokedox from './Components/Pokedox';
+import Pokedex from './Components/Pokedox';
 import styled from "styled-components";
 import img from './img/bg.gif';
 import LogoSrc from './img/logo.png';
+import PokemonDetails from './Components/PokemonDetails';
 
 
 const Content=styled.div`
-position:fixed;
 top:0;
 left:0;
 min-width:100%;
@@ -51,7 +51,7 @@ function App() {
     <Header>
       <Logo src={LogoSrc}/>
   </Header>
-  <Pokedox/>
+  <PokemonDetails></PokemonDetails>
   </Container>
   </Content>
   </>
