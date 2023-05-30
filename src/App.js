@@ -1,7 +1,7 @@
-import Pokedex from './Components/Pokedox';
+
 import styled from "styled-components";
 import img from './img/bg.gif';
-//import LogoSrc from './img/logo.png';
+import LogoSrc from './img/logo.gif';
 import PokemonDetails from './Components/PokemonDetails';
 
 
@@ -37,7 +37,11 @@ const Header=styled.span`
   font-weight:bold;
 
 `
-
+const Logo=styled.img`
+width: 100%;
+height: 100%;
+margin: 15px;
+`
 function App() {
   return (
 
@@ -45,7 +49,9 @@ function App() {
     <Content>
     <Container>
     <Header>
+      <Logo src={LogoSrc}/>
   </Header>
+
   <PokemonDetails></PokemonDetails>
   </Container>
   </Content>

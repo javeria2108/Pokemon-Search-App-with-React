@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
-import background from '../img/bgp.jpg';
+import background from '../img/bgp.gif';
 import SearchBar from './Searchbar';
 const PokemonDataContainer=styled.div`
    
