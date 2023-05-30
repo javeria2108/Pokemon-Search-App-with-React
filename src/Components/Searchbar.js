@@ -4,7 +4,7 @@ const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Center-align the content */
   font-family: Montserrat;
   padding: 10px 22px;
   font-size: 18px;
@@ -21,6 +21,7 @@ const SearchContainer = styled.div`
     outline: none;
   }
 `;
+
 const SearchBar =({onSearch}) => {
     const [searchName, setSearchName] = useState('');
   
@@ -53,7 +54,7 @@ const SearchBar =({onSearch}) => {
           onChange={handleInputChange}
           placeholder="Search for a Pokemon"
         />
-          <button onClick={handleSubmit} style={{color:"white",backgroundColor:"black", padding:"5px 10px",borderRadius:"10px",
+          <button onClick={handleSubmit} style={{color:"white",backgroundColor:"#0A285F", padding:"5px 10px",borderRadius:"10px",
         cursor:"pointer", fontWeight:"bold",fontSize:"15px" } } >Search</button> 
       </form>
       </SearchContainer>

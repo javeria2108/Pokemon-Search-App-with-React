@@ -3,42 +3,56 @@ import axios from 'axios';
 import styled from "styled-components";
 import background from '../img/bgp.gif';
 import SearchBar from './Searchbar';
+import ReactPaginate from 'react-paginate';
 const PokemonDataContainer=styled.div`
    
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    width:100%;
-    background-image: url(${background});
-    border-radius: 10px;
-    justify-content: space-between;
-    margin-bottom: 15px;
-
-`
-const ParagraphContainer=styled.div`
 display: flex;
 flex-direction: column;
-align-items:center;
-width:100%;
-background-color:black
-border: 2px,solid;
+align-items: center;
+width: 100%;
+background-image: url(${background});
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
 border-radius: 10px;
-    justify-content: space-between;
-    margin-bottom: 15px;
+justify-content: space-between;
+margin-bottom: 15px;
+
 `
+const StyledReactPaginate = styled(ReactPaginate)`
+     display: flex;
+     justify-content:space-between;
+     align-items:center;
+     cursor: pointer;
+     font-size: larger;
+     color: #D5A100;
+     list-style:none;
+     a{
+        padding: 10px;
+        margin:8px;
+        background-color:#0A285F;
+        border-radius: 10px;
+        box-shadow:1px 1px 1px 1px #888999;
+     }
+     a:hover{
+        opacity:0.5;
+     }
+`;
 
 const PokemonDetails = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+  const[pageNumber,setPageNumber]=useState(0);
 
+  const perPage=5;
+  const pagesVisited=pageNumber*perPage;
   useEffect(() => {
     const fetchPokemonData = async () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20');
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=30');
         const results = response.data.results;
         const pokemonPromises = results.map(async (result) => {
           const pokemonResponse = await axios.get(result.url);
@@ -78,26 +92,48 @@ const PokemonDetails = () => {
           }
               
 }
-
+const displayPokemon=pokemonData
+.slice(pagesVisited,pagesVisited+perPage)
+.map((pokemon) =>{
+    return (
+        <>
+     <PokemonDataContainer key={pokemon.id}>
+    <div >
+      <h2 style={{fontFamily:"cursive", color:"#0A285F", textAlign:"center",fontSize:"30px" }}>{pokemon.name}</h2>
+      <img src={pokemon.sprites.front_default} alt={pokemon.name} style={{width:"200px"}} />
+    <div style={{backgroundColor:"#0A285F", height:"100px",width:"250px",borderRadius:"10px", paddingTop: "20px", marginBottom:"20px"}}>
+      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
+      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
+      </div>
+    </div>
+    </PokemonDataContainer>
+    </>
+    )
+})
+const pageCount=Math.ceil(pokemonData.length/perPage);
+const changePage=({selected})=>{
+   setPageNumber(selected);
+}
   return (
     <div>
         <SearchBar onSearch={HandleSearch}></SearchBar>
         {loading && <p>Loading...</p>}
   
   {error && <p>{error}</p>}
-        { pokemonData.map((pokemon) => (
-        <PokemonDataContainer key={pokemon.id}>
-        <div >
-          <h2 style={{fontFamily:"cursive", color:"#0A285F",fontSize:"25px", textAlign:"center",fontSize:"30px" }}>{pokemon.name}</h2>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} style={{width:"200px"}} />
-        <div style={{backgroundColor:"#0A285F", height:"100px",width:"250px",borderRadius:"10px", paddingTop: "20px", marginBottom:"20px"}}>
-          <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
-          <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"15px",textAlign:"center",textDecorationLine:"underline"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
-          </div>
-        </div>
-        </PokemonDataContainer>
-      )) }
-    
+       {displayPokemon}
+       <StyledReactPaginate
+          previousLabel={"PREV"}
+          nextLabel={"NEXT"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"buttons"}
+          previousLinkClassName={"previousB"}
+          nextLinkClassName={"nextB"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+
+
+       />
       
     </div>
   );
