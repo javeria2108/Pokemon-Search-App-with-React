@@ -10,7 +10,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
-background-image: url(${background});
+background-color:#57B9EA;
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
@@ -25,7 +25,7 @@ const StyledReactPaginate = styled(ReactPaginate)`
      align-items:center;
      cursor: pointer;
      font-size: larger;
-     color: #D5A100;
+     color: white;
      list-style:none;
      a{
         padding: 10px;
@@ -102,8 +102,8 @@ const displayPokemon=pokemonData
       <h2 style={{fontFamily:"fantasy",font:"luminari", color:"#0A285F", textAlign:"center",fontSize:"30px" }}>{pokemon.name}</h2>
       <img src={pokemon.sprites.front_default} alt={pokemon.name} style={{width:"200px"}} />
     <div style={{backgroundColor:"#0A285F", height:"100px",width:"280px",borderRadius:"10px", paddingTop: "20px", marginBottom:"20px"}}>
-      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"18px",textAlign:"center",textDecorationLine:"underline"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
-      <p style={{fontFamily:"cursive",color:" #D5A100", fontSize:"18px",textAlign:"center",textDecorationLine:"underline"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
+      <p style={{fontFamily:"cursive",color:" white", fontSize:"18px",textAlign:"center",textDecorationLine:"underline"}}>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
+      <p style={{fontFamily:"cursive",color:" white", fontSize:"18px",textAlign:"center",textDecorationLine:"underline"}}>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
       </div>
     </div>
     </PokemonDataContainer>

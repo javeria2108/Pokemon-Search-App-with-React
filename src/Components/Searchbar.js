@@ -16,7 +16,8 @@ const SearchContainer = styled.div`
     flex: 1;
     padding: 10px 12px;
     border-radius: 12px;
-    background: lightgrey;
+    background: black;
+    color:white;
     border: 1px solid black;
     outline: none;
   }

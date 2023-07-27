@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import img from './img/bg.gif';
+
 import LogoSrc from './img/logo.gif';
 import PokemonDetails from './Components/PokemonDetails';
 
@@ -11,7 +11,7 @@ left: 0;
 min-width: 100vw; /* Adjusted to use viewport width */
 min-height: 100vh; /* Adjusted to use viewport height */
 border: 1px solid #000;
-background-image: url(${img});
+background-color:#093649;
 background-repeat: no-repeat;
 background-position: center;
 background-attachment: fixed;
